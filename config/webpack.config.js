@@ -9,11 +9,11 @@ module.exports = {
 	},
 	output: {
 		filename: 'main.js',
-		path: path.resolve(__dirname, '../dist')
+		path: path.resolve(__dirname, '../cms')
 	},
 	devtool: '#cheap-module-eval-source-map',
 	devServer: {
-		contentBase: './dist',
+		contentBase: './cms',
 		hot: true,
 		host: '0.0.0.0',
 		port: 9999,
@@ -22,6 +22,11 @@ module.exports = {
 		},
 	},
 	resolve: {
+		alias:{
+			'@': path.resolve(__dirname, '../src'),
+			Pages: path.resolve(__dirname, '../src/pages'),
+			Utils:path.resolve(__dirname, '../src/utils'),
+		},
 		extensions: [
 			'.js',
 			'.vue'
@@ -53,6 +58,10 @@ module.exports = {
 				use: [
 					'file-loader'
 				]
+			},
+			{
+				test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+				loader: 'file-loader'
 			}
 		]
 	},

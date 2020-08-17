@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		社区管理系统web
+		<router-view />
 	</div>
 </template>
 <script>
