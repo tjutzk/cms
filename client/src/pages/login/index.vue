@@ -58,7 +58,11 @@ export default {
         handleLogin(){
             this.$refs.loginForm.validate((valid) => {
                 if(valid){
-                    
+                    this.$request.post('/login', this.loginForm).then(res => {
+
+                    }).catch(err => {
+
+                    })
                 }
             })
         }

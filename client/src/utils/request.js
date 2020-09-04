@@ -1,10 +1,8 @@
 import axios from 'axios'
 import { Message,MessageBox } from 'element-ui'
-import store from '../store'
-import { getToken } from './auth'
 import router from '@/router';
 const service = axios.create({
-    baseURL:process.env.NODE_ENV === 'development' ? process.env.VUE_APP_BASE_API : `${window.location.origin}/api/`,
+    baseURL:'http://192.168.0.80:3000',
     withCredentials: true, // send cookies when cross-domain requests
     timeout: 1000*60 // request timeout
 })
@@ -14,10 +12,10 @@ service.interceptors.request.use(
         // do something before request is sent
         config.headers['Content-Type']='application/json'
         config.headers['Access-Control-Allow-Origin']='*'
-        if (store.getters.token) {
-			config.headers['token'] = getToken()
-			config.headers['Authorization']='Cst ' + getToken()
-        }
+        // if (store.getters.token) {
+		// 	config.headers['token'] = getToken()
+		// 	config.headers['Authorization']='Cst ' + getToken()
+        // }
         return config
     },
     error => {
@@ -49,10 +47,8 @@ service.interceptors.request.use(
 					cancelButtonText: '取消',
 					type: 'warning'
 				}).then(() => {
-					store.dispatch('user/resetToken').then(() => {
 					router.push({name:'login'})
 					return Promise.reject(res.msg || 'error')
-					})
 				})
 			}
 			Message({
