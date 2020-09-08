@@ -20,6 +20,14 @@ module.exports = {
 		overlay: {
 			errors: true,
 		},
+		proxy: {
+            "/api": {
+				target: `http://192.168.0.80:3000`, // 域名
+				pathRewrite: {
+					"^/api": ""
+				}
+			}
+        }
 	},
 	resolve: {
 		alias:{

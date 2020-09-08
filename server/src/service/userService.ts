@@ -1,21 +1,13 @@
 import userModel from '../model/user'
 import userDao from '../dao/userDao'
-interface UserInfo{
-    username:String,
-    password:String,
-    phone:String,
-    address:String,
-    role:String,
-    community:String,
-    regDate:String
-}
 export default class UserService{
     user;
     constructor(){
         this.user = new userDao(userModel)
     }
-    async initUser(userinfo:UserInfo){
+    async initUser(userinfo){
         let admin:object;
+        console.log(userinfo.phone)
         admin = await this.user.findOne({username:userinfo.username})
         if(!admin){
             this.user.create(userinfo)

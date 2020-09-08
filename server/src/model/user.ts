@@ -8,7 +8,7 @@ let userSchma = new mongoose.Schema({
     community:String,
     regDate:{
         type:Date,
-        default:Date.now
+        default:new Date()
     }
 })
 

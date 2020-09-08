@@ -3,7 +3,7 @@ import userContoller from './controller/userController'
 
 export default [
   {
-    path: '/',
+    path: '/home',
     method: 'get',
     action: homeController.hello
   },

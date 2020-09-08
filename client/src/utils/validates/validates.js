@@ -4,6 +4,6 @@ export function validateUsername(str) {
     return reg.test(str)
 }
 export function validatePassword(str) {
-    const reg = /^[\w]{6,8}$/
+    const reg = /^[\w]{6,20}$/
     return reg.test(str)
 }

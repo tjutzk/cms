@@ -23,11 +23,11 @@ class mongo{
         userController.initUser({
             username:'admin',
             password:'admin0720',
-            phone:'',
             address:'',
             role:'',
+            phone:'',
             community:'',
-            regDate:'2019-07-20'
+            regDate: new Date()
         })
     }
 }

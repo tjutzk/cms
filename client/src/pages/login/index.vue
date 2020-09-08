@@ -49,7 +49,7 @@ export default {
                 ],
                 password:[
                     { required: true, message: '密码不能为空'},
-                    {validator:formValidate('validatePassword', '密码长度为6~8'), trigger:'blur'}
+                    {validator:formValidate('validatePassword', '密码长度为6~20'), trigger:'blur'}
                 ]
             }
         }
@@ -63,6 +63,7 @@ export default {
                     }).catch(err => {
 
                     })
+                    
                 }
             })
         }
