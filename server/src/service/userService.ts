@@ -1,5 +1,6 @@
 import userModel from '../model/user'
 import userDao from '../dao/userDao'
+import httpRes from '../utils/httpRes'
 export default class UserService{
     user;
     constructor(){
@@ -17,16 +18,9 @@ export default class UserService{
         let res
         res = await this.user.findOne(userinfo)
         if(!res){
-            return {
-                code:'1001',
-                msg:'用户名或密码错误'
-            }
+            return httpRes.failNoData('用户名密码不正确')
         }else{
-            return {
-                code:'1000',
-                msg:'登录成功',
-                data:res
-            }
+            return httpRes.success(res)
         }
     }
 }

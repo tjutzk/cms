@@ -2,6 +2,7 @@ import * as Koa from 'koa';
 import * as Router from 'koa-router';
 import * as bodyParser from 'koa-bodyparser';
 import * as cors from 'koa2-cors'
+import * as logger from 'koa-logger'; 
 import AppRoutes from './routes';
 import dbUrl from './config/database'
 import mongo from './database/mongodb'
@@ -26,6 +27,7 @@ app.use(cors({
     allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
 }))
 app.use(bodyParser());
+app.use(logger())
 app.use(router.routes());
 app.use(router.allowedMethods());
 app.listen(port);
