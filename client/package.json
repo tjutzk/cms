@@ -17,7 +17,7 @@
     "element-ui": "^2.13.2",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "style-loader": "^1.2.1",
     "ts-loader": "^8.0.1",
     "vue": "^2.6.11",
